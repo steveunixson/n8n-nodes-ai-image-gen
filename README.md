@@ -6,7 +6,14 @@ This repo contains example nodes to help you get started building your own custo
 
 To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
 
+A npm package of reverse-engineered Bing Image Creator API. Courtesy of [Bing Image Search API](https://www.microsoft.com/cognitive-services/en-us/bing-image-search-api) and [EdgeGPT](https://github.com/acheong08/EdgeGPT) by [acheong08](https://github.com/acheong08).
+
 ## Prerequisites
+
+### Set environment variables
+You need access to [Bing Image Creator](https://www.bing.com/create) or a valid cookie from someone who has access.
+
+The cookie you need from Bing is the _U cookie, this could be aquired using a [chrome-extension](https://chrome.google.com/webstore/detail/get-cookiestxt-locally/cclelndahbckbenkjhflpdbgdldlbecc) or by using the [Network tab](https://developers.google.com/web/tools/chrome-devtools/network/) in Chrome DevTools.
 
 You need the following installed on your development machine:
 
