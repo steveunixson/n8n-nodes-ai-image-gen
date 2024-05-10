@@ -44,7 +44,6 @@ export class SunoAI implements INodeType {
 				displayName: 'Prompt',
 				name: 'prompt',
 				type: 'string',
-				required: false,
 				default: '',
 				placeholder: '',
 				description: 'Prompt for song generator AI model',
@@ -53,10 +52,9 @@ export class SunoAI implements INodeType {
 				displayName: 'Make Instrumental',
 				name: 'make_instrumental',
 				type: 'boolean',
-				required: false,
 				default: true,
 				placeholder: '',
-				description: 'Does a song needs lyrics?',
+				description: 'Whether a song needs lyrics?',
 			}
 		],
 	};
