@@ -66,13 +66,13 @@ export class SunoAI implements INodeType {
 		const prompt = this.getNodeParameter('gpt_description_prompt', 0) as string;
 		const make_instrumental = this.getNodeParameter('make_instrumental', 0) as boolean;
 
-		const songBuffers = await generateSong(
+		const songStrings = await generateSong(
 			gpt_description_prompt,
 			cookie,
 			prompt,
 			make_instrumental,
 		);
 
-		return [this.helpers.returnJsonArray({ songs: songBuffers })];
+		return [this.helpers.returnJsonArray({ songs: songStrings })];
 	}
 }

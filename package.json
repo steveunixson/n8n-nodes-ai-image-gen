@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-ai-image-gen",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "n8n node to generate images from Bing. Special thanks to https://github.com/nociza/Bimg",
   "keywords": [
     "n8n-community-node-package",

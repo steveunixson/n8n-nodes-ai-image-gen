@@ -81,7 +81,7 @@ const generate = async ({
 	prompt: string;
 	make_instrumental: boolean;
 	gpt_description_prompt: string;
-}) => {
+}): Promise<Array<string>> => {
 	const instance = axios.create({
 		headers: {
 			Authorization: `Bearer ${jwt}`,
@@ -138,30 +138,6 @@ function delay(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-const songs: ArrayBuffer[] = [];
-
-async function fetchAudio(urls: string[]): Promise<void> {
-	if (urls.length === 0) {
-		console.log('All URLs processed');
-		return;
-	}
-
-	const url = urls[0];
-	try {
-		const response: AxiosResponse = await axios.get(url, { responseType: 'arraybuffer' });
-		songs.push(response.data);
-		console.log(`Success for ${url}`);
-	} catch (error) {
-		console.error(`Error fetching ${url}:`, error);
-	}
-
-	// Wait for 2000ms before making the next request
-	await delay(2000);
-
-	// Recursive call for the remaining URLs
-	await fetchAudio(urls.slice(1));
-}
-
 export const generateSong = async (
 	gpt_description_prompt: string,
 	cookie: string,
@@ -169,14 +145,10 @@ export const generateSong = async (
 	make_instrumental = true,
 ) => {
 	const { jwt } = await createSession(cookie);
-	const ids = await generate({
+	return generate({
 		prompt,
 		jwt,
 		make_instrumental,
 		gpt_description_prompt,
 	});
-
-	await fetchAudio(ids);
-
-	return ids;
 };
